@@ -21,13 +21,14 @@ class CreateSurveysTable extends Migration
             $table->timestamp('active');
             $table->timestamp('active_till');
             $table->string('admin_email');
-            $table->integer('type_id');
+            $table->integer('type_id')->unsigned();
+
+
+            $table->timestamps(); //created at and updated at time fields
 
             $table->foreign('type_id')
                 ->references('id')
-                ->on('survey_type');
-
-            $table->timestamps(); //created at and updated at time fields
+                ->on('survey_types');
         });
     }
 

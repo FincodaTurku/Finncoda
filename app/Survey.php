@@ -12,4 +12,14 @@ class Survey extends Model
      * @var string
      */
     protected $table = 'surveys';
+
+    /**
+     * A survey has many questions
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions()
+    {
+        return $this->hasMany('App\Indicators');
+    }
 }

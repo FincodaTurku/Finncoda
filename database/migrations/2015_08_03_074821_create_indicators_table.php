@@ -16,13 +16,16 @@ class CreateIndicatorsTable extends Migration
             $table->increments('id');
 
             $table->text('indicator');
-            $table->integer('group_id');
+            $table->integer('group_id')->unsigned();
+
+
+            $table->timestamps();
 
             $table->foreign('group_id')
                 ->references('id')
-                ->on('groups');
+                ->on('indicator_groups')
+                ->onDelete('cascade');
 
-            $table->timestamps();
         });
     }
 

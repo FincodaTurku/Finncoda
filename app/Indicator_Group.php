@@ -12,4 +12,11 @@ class Indicator_Group extends Model
      * @var string
      */
     protected $table = 'indicator_groups';
+
+    protected $fillable = ['name'];
+
+    public function questions()
+    {
+        return $this->hasMany('App\Indicator', 'group_id');
+    }
 }

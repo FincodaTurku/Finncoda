@@ -19,3 +19,17 @@ $factory->define(App\User::class, function ($faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Indicator_Group::class, function ($faker)
+{
+    return [
+        'name' => $faker->name,
+    ];
+});
+
+$factory->define(App\Indicator::class, function ($faker)
+{
+    return [
+        'name' => $faker->sentences($nb = 1),
+    ];
+});

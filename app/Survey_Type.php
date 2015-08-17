@@ -12,4 +12,9 @@ class Survey_Type extends Model
      * @var string
      */
     protected $table = 'survey_type';
+
+    public function surveys()
+    {
+        return $this->hasMany('App\Survey');
+    }
 }

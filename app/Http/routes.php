@@ -11,14 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Indicator_Group;
 
-Route::get('/questions', 'QuestionsController@index');
-Route::get('questions/create', 'QuestionsController@create');
-Route::post('questions/create', 'QuestionsController@store');
+/*Route::bind('groups', function($value){
+    return Indicator_Group::where('id', $value)->first();
+});*/
+
+Route::resource('groups', 'IndicatorGroupController');
+
+
+/*Route::delete('questions/groups/{id}', 'QuestionsController@groupsDestroy');
+Route::get('questions/groups/create', 'QuestionsController@groupsCreate');
+Route::post('questions/groups/create', 'QuestionsController@groupsStore');*/
+
+Route::get('questions/', 'QuestionsController@index');
+
+Route::resource('groups.questions', 'QuestionsController');
+
+/*Route::get('questions/', 'QuestionsController@index');
+Route::get('questions/create/', 'QuestionsController@create');
+Route::post('questions/create/', 'QuestionsController@store');
 
 Route::get('/surveys', 'SurveyController@index');
 Route::get('/surveys/create', 'SurveyController@create');
-Route::post('/surveys/create', 'SurveyController@store');
+Route::post('/surveys/create', 'SurveyController@store');*/

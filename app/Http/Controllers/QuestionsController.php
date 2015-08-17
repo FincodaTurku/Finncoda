@@ -2,48 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\Indicator_Group;
+use App\Question;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Question;
+use App\Indicator;
+use App\Flyer;
 
 class QuestionsController extends Controller
 {
 
     public function index()
     {
-        $questions = Question::all();
+        $questions = Indicator::all();
 
-        return view ('pages.questions', ['questions' => $questions]);
+        return view('questions.index', ['questions' => $questions]);
     }
 
-
-    public function create()
+    public function show(Indicator_Group $group)
     {
+        dd($group->all());
 
-        $qs = Question::find(1);
-        var_dump($qs);
-        echo "test <br>";
-        var_dump($qs->partOfSurvey);
-        return view ('pages.createSurveyQuestions');
+        $questions = $group->questions;
 
+        return view ('questions.show', ['questions' => $questions, 'group' => $group]);
     }
 
-    public function store(Request $request)
+
+    public function create(Indicator_Group $group)
+    {
+        return view ('questions.create')->with('group', $group);
+    }
+
+    public function store(Indicator_Group $group, Request $request)
     {
         $this->validate($request, [
             'question' => 'required|min:10'
         ]);
 
-        $question = new Question;
+        $question = new Indicator;
 
-        $question->question = $request->question;
+        $question->indicator = $request->question;
+        $question->group_id = $group->id;
 
         $question->save();
 
-        return redirect('questions');
+        return redirect('groups');
     }
+
+    public function destroy()
+    {
+
+    }
+
+
 }
 

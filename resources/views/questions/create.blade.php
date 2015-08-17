@@ -4,11 +4,11 @@
 
 @section('content')
 
-    <h1>Add a Survey Question</h1>
+    <h1>Add a Survey Question to {{ $group->name }}</h1>
     <br>
     <h2>Enter question you would like to include in a survey.</h2>
 
-    {!! Form::open() !!}
+    {!! Form::open(array('action' => array('QuestionsController@store', $group->id))) !!}
 
     <!--Question Field
         Form::text('name : String', 'default : String', params : array) -->

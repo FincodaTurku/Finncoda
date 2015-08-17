@@ -12,4 +12,12 @@ class Survey_Indicators extends Model
      * @var string
      */
     protected $table = 'survey_indicators';
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function usedInSurvey()
+    {
+        return $this->belongsToMany('App\Survey');
+    }
 }

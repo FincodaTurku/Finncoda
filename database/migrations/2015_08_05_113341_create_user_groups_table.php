@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserInGroupsTable extends Migration
+class CreateUserGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,19 +12,16 @@ class CreateUserInGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_in_groups', function (Blueprint $table) {
+        Schema::create('user_groups', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('user_id');
-            $table->integer('user_group_id');
+            $table->string('name');
+            $table->text('description');
+            $table->integer('owner_id')->unsigned(); //foreign key to the user who created the group.
 
-            $table->foreign('user_id')
+            $table->foreign('owner_id')
                 ->references('id')
                 ->on('users');
-
-            $table->foreign('user_group_id')
-                ->references('id')
-                ->on('user_groups');
 
             $table->timestamps();
         });
@@ -37,6 +34,6 @@ class CreateUserInGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_in_groups');
+        Schema::drop('user_groups');
     }
 }

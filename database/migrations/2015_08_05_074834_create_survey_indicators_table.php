@@ -15,8 +15,8 @@ class CreateSurveyIndicatorsTable extends Migration
         Schema::create('survey_indicators', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('survey_id');
-            $table->integer('indicator_id');
+            $table->integer('survey_id')->length(10)->unsigned();
+            $table->integer('indicator_id')->length(10)->unsigned();
             $table->integer('indicator_order');
 
             $table->foreign('survey_id')

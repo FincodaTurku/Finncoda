@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Indicators extends Model
+class Indicator extends Model
 {
     /**
      * The table associated with the model.
@@ -13,6 +13,7 @@ class Indicators extends Model
      */
     protected $table = 'indicators';
 
+    protected $fillable = ['indicator'];
 
     public function group()
     {
