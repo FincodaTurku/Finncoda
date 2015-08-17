@@ -13,7 +13,8 @@
 
 $factory->define(App\User::class, function ($faker) {
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->word,
+        'last_name' =>
         'email' => $faker->email,
         'password' => str_random(10),
         'remember_token' => str_random(10),
@@ -33,3 +34,5 @@ $factory->define(App\Indicator::class, function ($faker)
         'name' => $faker->sentences($nb = 1),
     ];
 });
+
+

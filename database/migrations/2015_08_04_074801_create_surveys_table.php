@@ -15,8 +15,8 @@ class CreateSurveysTable extends Migration
         Schema::create('surveys', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('owner_id');
-            $table->integer('admin_id');
+            $table->integer('owner_id')->unsigned();
+            $table->integer('admin_id')->unsigned();
             $table->timestamp('expires_at');
             $table->timestamp('active');
             $table->timestamp('active_till');
@@ -29,6 +29,14 @@ class CreateSurveysTable extends Migration
             $table->foreign('type_id')
                 ->references('id')
                 ->on('survey_types');
+
+            $table->foreign('owner_id')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('admin_id')
+                ->references('id')
+                ->on('users');
         });
     }
 

@@ -4,24 +4,24 @@
 
 @section('content')
 
-    <h1>List of ALL the Survey Questions</h1>
+    <h1>List Survey Questions in</h1>
     <br>
+    <h1>{{ $type->name }}</h1>
 
 
-
-    @if(count($questions))
-        @foreach($questions as $question)
+    @if(count($surveys))
+        @foreach($surveys as $survey)
 
             <div class="list-group">
                     <span class="list-group-item clearfix">
-                        <a href="{{ action('QuestionsController@show', $question->group_id) }}">
-                            {{ $question->indicator }}
+                        <a href="#">
+                            {{ $survey->indicator }}
                         </a>
 
                         <span class="pull-right">
                         {!! Form::open(array('class' => 'form-inline',
                             'method' => 'DELETE',
-                            'action' => array('QuestionsController@destroy', $question->group_id, $question->id)))
+                            'action' => array('QuestionsController@destroy', $question->id)))
                             !!}
 
 

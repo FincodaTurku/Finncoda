@@ -18,8 +18,8 @@ class Survey extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function questions()
+    public function type()
     {
-        return $this->hasMany('App\Indicators');
+        return $this->belongsTo('App\Survey_Type');
     }
 }

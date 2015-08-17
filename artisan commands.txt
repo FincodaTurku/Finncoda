@@ -1,0 +1,3 @@
+Seeding the DB
+ php artisan db:seed --class=survey_types_table_seeder
+ php artisan db:seed --class=indicator_tables_seeder

@@ -53,9 +53,18 @@ class QuestionsController extends Controller
         return redirect('groups');
     }
 
-    public function destroy()
+    /**
+     * Delete a question
+     *
+     * @param $group
+     * @param $question_id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($group, $question_id)
     {
+        Indicator::find($question_id)->delete();
 
+        return redirect()->back();
     }
 
 
