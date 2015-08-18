@@ -13,10 +13,15 @@ class Indicator extends Model
      */
     protected $table = 'indicators';
 
-    protected $fillable = ['indicator'];
+    protected $fillable = ['indicator', 'group_id'];
 
     public function group()
     {
-        $this->belongsTo('App\Indicator_group');
+        return $this->belongsTo('App\Indicator_group');
+    }
+
+    public function survey()
+    {
+        return $this->hasMany('App\Survey');
     }
 }

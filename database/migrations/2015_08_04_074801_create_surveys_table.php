@@ -16,11 +16,13 @@ class CreateSurveysTable extends Migration
             $table->increments('id');
 
             $table->integer('owner_id')->unsigned();
-            $table->integer('admin_id')->unsigned();
-            $table->timestamp('expires_at');
-            $table->timestamp('active');
-            $table->timestamp('active_till');
-            $table->string('admin_email');
+            $table->string('title');
+            $table->text('description');
+            $table->text('welcome_message');
+            $table->text('end_message');
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
+
             $table->integer('type_id')->unsigned();
 
 
@@ -30,11 +32,9 @@ class CreateSurveysTable extends Migration
                 ->references('id')
                 ->on('survey_types');
 
-            $table->foreign('owner_id')
-                ->references('id')
-                ->on('users');
 
-            $table->foreign('admin_id')
+
+            $table->foreign('owner_id')
                 ->references('id')
                 ->on('users');
         });

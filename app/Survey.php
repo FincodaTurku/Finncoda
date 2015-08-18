@@ -13,6 +13,12 @@ class Survey extends Model
      */
     protected $table = 'surveys';
 
+    protected $fillable = [
+        'owner_id',
+        'title',
+
+    ];
+
     /**
      * A survey has many questions
      *
@@ -21,5 +27,10 @@ class Survey extends Model
     public function type()
     {
         return $this->belongsTo('App\Survey_Type');
+    }
+
+    public function questions()
+    {
+        return $this->belongsToMany('App\Indicator', 'survey_indicators');
     }
 }

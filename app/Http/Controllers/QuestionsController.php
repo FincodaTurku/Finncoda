@@ -62,7 +62,9 @@ class QuestionsController extends Controller
      */
     public function destroy($group, $question_id)
     {
+
         Indicator::find($question_id)->delete();
+
 
         return redirect()->back();
     }

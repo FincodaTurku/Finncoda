@@ -36,5 +36,6 @@ Route::get('/surveys', 'SurveyController@index');
 Route::get('/surveys/create', 'SurveyController@create');
 Route::post('/surveys/create', 'SurveyController@store');*/
 
+Route::get('survey/create', 'SurveyController@createNew');
 Route::resource('type', 'SurveyTypeController');
 Route::resource('type.survey', 'SurveyController');

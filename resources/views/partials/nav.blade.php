@@ -34,12 +34,12 @@ use helpers;
          </a>
         <ul class="dropdown-menu">
             <li><a href="{{action('SurveyTypeController@create') }}">Create Survey Type</a></li>
-            <li><a href="{{ url('SurveyController@create') }}">Create Survey</a></li>
+            <li><a href="{{ url('survey/create') }}">Create Survey</a></li>
 
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">View/Delete</li>
             <li><a href="{{ action('SurveyTypeController@index') }}">Survey Types</a></li>
-            <li><a href="{{ url('/questions/') }}">Surveys</a></li>
+            <li><a href="{{ url('/surveys/') }}">Surveys</a></li>
         </ul>
     </li>
 

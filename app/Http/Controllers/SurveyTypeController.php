@@ -67,9 +67,7 @@ class SurveyTypeController extends Controller
     {
         $surveys = $type->surveys;
 
-        dd($surveys);
-
-        return view ('surveys.show', ['surveys' => $surveys, 'type' => $type]);
+        return view ('surveyTypes.show', ['type' => $type, 'surveys' => $surveys]);
     }
 
     /**

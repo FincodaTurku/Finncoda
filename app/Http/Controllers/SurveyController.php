@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Indicator;
+use App\Indicator_Group;
 use App\Question;
 use App\Questions_Survey;
 use App\Survey;
@@ -9,9 +11,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Input;
 
-class SurveyController extends Controller
-{
+class SurveyController extends Controller {
 
     public function index()
     {
@@ -20,32 +22,36 @@ class SurveyController extends Controller
         return view('pages.surveys', ['number_of_surveys' => $surveys->count()]);
     }
 
-    public function create()
+    public function create($type)
     {
-        $questions = Question::all();
+        $groups = Indicator_Group::all();
 
-        return view('pages.createSurvey', ['questions' => $questions]);
+
+        return view('surveys.create', ['groups' => $groups, 'type' => $type]);
     }
 
-    public function store(Request $request)
+    public function store($type, Request $request)
     {
         $user_id = 3; //just a temp field to spike a fake user.
         $survey = new Survey;
 
-        $survey->created_by = $user_id;
-            $survey->save();
+        $questions = Input::get('question');
 
 
-        foreach($request->question_id as $id)
+        $survey->owner_id = $user_id;
+        $survey->title = $request->title;
+        $survey->type()->associate($type);
+
+        $survey->save();
+
+
+        foreach ($questions as $question)
         {
-            $q_survey = new Questions_Survey;
+            $survey->questions()->attach($question);
 
-            $q_survey->question_id = $id;
-            $q_survey->survey_id = 1;
+        };
 
-            $q_survey->save();
-        }
 
-        return redirect('surveys');
+        return redirect()->back();
     }
 }

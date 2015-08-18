@@ -14,25 +14,27 @@
 $factory->define(App\User::class, function ($faker) {
     return [
         'first_name' => $faker->word,
-        'last_name' =>
+        'last_name' => $faker->word,
         'email' => $faker->email,
-        'password' => str_random(10),
-        'remember_token' => str_random(10),
+        'password' => Hash::make('password'),
     ];
 });
+$factory->define(App\Indicator::class, function ($faker)
+{
+    return [
+        'indicator' => $faker->sentences($nb = 1),
+        'group_id' => App\Indicator_Group::all()->random()->id,
+    ];
+});
+
 
 $factory->define(App\Indicator_Group::class, function ($faker)
 {
     return [
-        'name' => $faker->name,
+        'name' => $faker->unique()->word(),
     ];
 });
 
-$factory->define(App\Indicator::class, function ($faker)
-{
-    return [
-        'name' => $faker->sentences($nb = 1),
-    ];
-});
+
 
 
