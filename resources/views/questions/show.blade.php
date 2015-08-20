@@ -21,7 +21,7 @@
                         <span class="pull-right">
                         {!! Form::open(array('class' => 'form-inline',
                             'method' => 'DELETE',
-                            'action' => array('QuestionsController@destroy', $question->id)))
+                            'action' => array('QuestionsController@destroy', $group->id, $question->id)))
                             !!}
 
 

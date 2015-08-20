@@ -26,8 +26,12 @@ class SurveyController extends Controller {
     {
         $groups = Indicator_Group::all();
 
-
         return view('surveys.create', ['groups' => $groups, 'type' => $type]);
+    }
+
+    public function createNew()
+    {
+        return 'Create Survey Page!!';
     }
 
     public function store($type, Request $request)
