@@ -19,4 +19,11 @@ class Indicator_Group extends Model
     {
         return $this->hasMany('App\Indicator', 'group_id');
     }
+
+    public function question($question)
+    {
+
+        return $this->questions()->where('id', '=', $question);
+    }
+
 }

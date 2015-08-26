@@ -39,7 +39,7 @@ use helpers;
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">View/Delete</li>
             <li><a href="{{ action('SurveyTypeController@index') }}">Survey Types</a></li>
-            <li><a href="{{ url('/surveys/') }}">Surveys</a></li>
+            <li><a href="{{ url('/surveys') }}">Surveys</a></li>
         </ul>
     </li>
 

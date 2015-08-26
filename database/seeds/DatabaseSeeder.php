@@ -15,29 +15,36 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        $this->call('users_table_seeder');
+
+        $this->command->info('Users table seeded!');
+
+
+
+        $this->call('indicator_groups_table_seeder');
+
+        $this->command->info('Indicator Groups table seeded!');
+
+
+
+        $this->call('indicators_table_seeder');
+
+        $this->command->info('Indicators table seeded!');
+
+
+
         $this->call('survey_types_table_seeder');
 
         $this->command->info('Survey Types table seeded!');
 
 
 
-        factory(App\Indicator_Group::class, 10);
-
-
-        $faker = Faker::create();
-        foreach (\App\Indicator_Group::all() as $group)
-        {
-            dd($group);
-        }
 
 
 
 
-        $this->command->info('Indicator Groups table seeded!');
 
 
-
-        $this->command->info('Indicators table seeded!');
 
 
         Model::reguard();

@@ -14,7 +14,7 @@
 
             <div class="list-group">
                     <span class="list-group-item clearfix">
-                        <a href="{{ action('QuestionsController@show', $question->group_id) }}">
+                        <a href="{{ action('QuestionsController@show', [$question->group_id, $question->id]) }}">
                             {{ $question->indicator }}
                         </a>
 

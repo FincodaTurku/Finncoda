@@ -19,14 +19,6 @@ $factory->define(App\User::class, function ($faker) {
         'password' => Hash::make('password'),
     ];
 });
-$factory->define(App\Indicator::class, function ($faker)
-{
-    return [
-        'indicator' => $faker->sentences($nb = 1),
-        'group_id' => App\Indicator_Group::all()->random()->id,
-    ];
-});
-
 
 $factory->define(App\Indicator_Group::class, function ($faker)
 {
@@ -34,6 +26,17 @@ $factory->define(App\Indicator_Group::class, function ($faker)
         'name' => $faker->unique()->word(),
     ];
 });
+
+$factory->define(App\Indicator::class, function($faker){
+    return [
+        'indicator' => $faker->sentence,
+        'group_id' => App\Indicator_Group::all()->random()->id,
+    ];
+});
+
+
+
+
 
 
 

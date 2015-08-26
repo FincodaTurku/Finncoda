@@ -28,7 +28,12 @@ class RouteServiceProvider extends ServiceProvider
 
         $router->model('groups', 'App\Indicator_Group');
 
+        //$router->model('groups.questions', 'App\Indicator');
+
         $router->model('type', 'App\Survey_Type');
+
+        //$router->model('survey', 'App\Survey');
+
     }
 
     /**

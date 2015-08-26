@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Survey;
 use App\Survey_Type;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class SurveyTypeController extends Controller
 {
@@ -66,6 +68,11 @@ class SurveyTypeController extends Controller
     public function show(Survey_Type $type)
     {
         $surveys = $type->surveys;
+        $st = Survey::with('owner')->where('type_id', '=', $type->id)->get();
+        $survs = User::with('surveys')->where('id', '=', 3)->get();
+        //$st->surveys;
+
+        dd($st->toArray());
 
         return view ('surveyTypes.show', ['type' => $type, 'surveys' => $surveys]);
     }
@@ -94,7 +101,7 @@ class SurveyTypeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the survey type  from the DB.
      *
      *
      *

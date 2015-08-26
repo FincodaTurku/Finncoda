@@ -10,10 +10,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Indicator;
-use App\Flyer;
 
-class QuestionsController extends Controller
-{
+
+class QuestionsController extends Controller {
 
     public function index()
     {
@@ -24,17 +23,16 @@ class QuestionsController extends Controller
 
     public function show(Indicator_Group $group)
     {
-        dd($group->all());
 
         $questions = $group->questions;
 
-        return view ('questions.show', ['questions' => $questions, 'group' => $group]);
+        return view('questions.show', ['questions' => $questions, 'group' => $group]);
     }
 
 
     public function create(Indicator_Group $group)
     {
-        return view ('questions.create')->with('group', $group);
+        return view('questions.create')->with('group', $group);
     }
 
     public function store(Indicator_Group $group, Request $request)
@@ -55,18 +53,15 @@ class QuestionsController extends Controller
 
     /**
      * Delete a question
-     *
-     * @param $group
-     * @param $question_id
+     * @param Indicator $question
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($group, $question_id)
+    public function destroy(Indicator_Group $group, $question)
     {
-        Indicator::find($question_id)->delete();
-        
-        return redirect()->back();
+
+        /*
+         * So this */
+        dd(Indicator::find($question)->delete());
     }
 
-
 }
-

@@ -33,4 +33,12 @@ class Survey extends Model
     {
         return $this->belongsToMany('App\Indicator', 'survey_indicators');
     }
+
+    /**
+     *Each survey has a creator or owner
+     */
+    public function owner()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Survey extends Model
+class Old_Survey extends Model
 {
     /**
      * The table associated with the model.

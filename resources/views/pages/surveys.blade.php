@@ -8,4 +8,10 @@
     <br>
     <h2>{{ $number_of_surveys }}</h2>
 
+    <div class="row">
+        <div class="list-group"></div>
+    </div>
+
+    @include('pages._list')
+
 @stop
