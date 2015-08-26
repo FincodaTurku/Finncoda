@@ -16,6 +16,7 @@ class CreateSurveysTable extends Migration
             $table->increments('id');
 
             $table->integer('owner_id')->unsigned();
+            $table->integer('type_id')->unsigned();
             $table->string('title');
             $table->text('description');
             $table->text('welcome_message');
@@ -23,7 +24,6 @@ class CreateSurveysTable extends Migration
             $table->timestamp('start_time');
             $table->timestamp('end_time');
 
-            $table->integer('type_id')->unsigned();
 
 
             $table->timestamps(); //created at and updated at time fields

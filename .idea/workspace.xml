@@ -28,14 +28,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="QuestionsController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php">
+      <file leaf-file-name="Survey.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Survey.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78723407">
-              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
-              <folding>
-                <element signature="e#40#64#0#PHP" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.45592704">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,7 +70,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/IndicatorGroupController.php" />
         <option value="$PROJECT_DIR$/resources/views/groups/index.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Survey.php" />
         <option value="$PROJECT_DIR$/resources/views/surveys/create.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/indicator_tables_seeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/indicator_group_seeder.php" />
@@ -82,12 +79,9 @@
         <option value="$PROJECT_DIR$/database/seeds/indicators_table_seeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_08_06_113422_create_user_in_groups_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_08_05_113341_create_user_groups_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_08_05_074834_create_survey_indicators_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_08_03_074821_create_indicators_table.php" />
         <option value="$PROJECT_DIR$/database/factories/ModelFactory.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_08_04_074801_create_surveys_table.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/nav.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/list.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
@@ -102,8 +96,12 @@
         <option value="$PROJECT_DIR$/resources/views/questions/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Indicator_Group.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SurveyController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_08_03_074821_create_indicators_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SurveyController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_08_05_074834_create_survey_indicators_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_08_04_074801_create_surveys_table.php" />
+        <option value="$PROJECT_DIR$/app/Survey.php" />
       </list>
     </option>
   </component>
@@ -637,13 +635,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/.gitkeep">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1184,85 +1175,6 @@
             <marker date="1438940951261" expanded="true" signature="-1:-1" placeholder="..." />
             <marker date="1438940951261" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
             <marker date="1438940951261" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_04_074801_create_surveys_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24113475">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <marker date="1440508313431" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
-            <marker date="1440508313431" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_03_074821_create_indicators_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53090173">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <marker date="1440508315353" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
-            <marker date="1440508315353" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_05_074834_create_survey_indicators_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60790277">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <marker date="1440508311424" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
-            <marker date="1440508311424" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Survey.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90577507">
-          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
-          <folding>
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder=" The table associated with the model. ..." />
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder=" A survey has many questions ..." />
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder="Each survey has a creator or owner ..." />
-            <marker date="1440434669949" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -2975,26 +2887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SurveyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68490374">
-          <caret line="92" column="39" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
-          <folding>
-            <marker date="1440616501307" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder=" Delete the survey from the DB. ..." />
-            <marker date="1440616501307" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SurveyTypeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49138805">
@@ -3022,13 +2914,151 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_03_074821_create_indicators_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44782168">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="34" />
+          <folding>
+            <marker date="1440618600756" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
+            <marker date="1440618600756" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/SoftDeletes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12158055">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Indicates if the model is currently force deleting. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Boot the soft deleting trait for a model. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Force a hard delete on a soft deleted model. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Perform the actual delete query on this model instance. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Perform the actual delete query on this model instance. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Restore a soft-deleted model instance. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Determine if the model instance has been soft-deleted. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Get a new query builder that includes soft deletes. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Get a new query builder that only includes soft deletes. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Register a restoring model event with the dispatcher. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Register a restored model event with the dispatcher. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Get the name of the &quot;deleted at&quot; column. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder=" Get the fully qualified &quot;deleted at&quot; column. ..." />
+            <marker date="1440504033139" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78723407">
-          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.845998">
+          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
           <folding>
-            <element signature="e#40#64#0#PHP" expanded="true" />
+            <marker date="1440618909667" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder=" Delete a question ..." />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440618909667" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_05_074834_create_survey_indicators_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69908816">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <marker date="1440619127930" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
+            <marker date="1440619127930" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_04_074801_create_surveys_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5106383">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <marker date="1440619172554" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder=" Run the migrations. ..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder=" Reverse the migrations. ..." />
+            <marker date="1440619172554" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SurveyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85714287">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding>
+            <marker date="1440619127936" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder=" Delete the survey from the DB. ..." />
+            <marker date="1440619127936" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Survey.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45592704">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

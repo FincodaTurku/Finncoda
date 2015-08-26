@@ -21,7 +21,8 @@ class CreateSurveyIndicatorsTable extends Migration
 
             $table->foreign('survey_id')
                 ->references('id')
-                ->on('surveys');
+                ->on('surveys')
+                ->onDelete('cascade');
 
             $table->foreign('indicator_id')
                 ->references('id')

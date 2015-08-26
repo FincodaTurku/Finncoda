@@ -60,8 +60,12 @@ class QuestionsController extends Controller {
     {
 
         /*
-         * So this */
-        dd(Indicator::find($question)->delete());
+         * So this needs the foreign key contraints removed
+         * or implementing soft delete which is what I've done.
+         * */
+        Indicator::find($question)->delete();
+
+        return redirect()->back();
     }
 
 }

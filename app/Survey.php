@@ -13,6 +13,7 @@ class Survey extends Model
      */
     protected $table = 'surveys';
 
+
     protected $fillable = [
         'owner_id',
         'title',

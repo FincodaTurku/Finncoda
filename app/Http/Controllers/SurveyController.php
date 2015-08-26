@@ -7,6 +7,7 @@ use App\Indicator_Group;
 use App\Question;
 use App\Questions_Survey;
 use App\Survey;
+use App\Survey_Type;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -90,9 +91,9 @@ class SurveyController extends Controller {
      * @param Survey_Type $type
      * @return Response
      */
-    public function destroy($type, Survey $survey)
+    public function destroy(Survey_Type $type, $survey)
     {
-        dd($survey->delete());
+        Survey::find($survey)->delete();
 
         return redirect()->back();
     }

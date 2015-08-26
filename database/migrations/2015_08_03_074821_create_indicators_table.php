@@ -17,6 +17,7 @@ class CreateIndicatorsTable extends Migration
 
             $table->text('indicator');
             $table->integer('group_id')->unsigned();
+            $table->softDeletes();
 
 
             $table->timestamps();
