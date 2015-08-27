@@ -33,7 +33,6 @@ class CreateSurveysTable extends Migration
                 ->on('survey_types');
 
 
-
             $table->foreign('owner_id')
                 ->references('id')
                 ->on('users');

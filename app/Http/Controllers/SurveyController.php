@@ -35,7 +35,11 @@ class SurveyController extends Controller {
 
     public function createNew()
     {
-        return 'Create Survey Page!!';
+        $groups = Indicator_Group::all();
+
+        $types = Survey_Type::all();
+
+        return view('surveys.createNew', ['groups' => $groups, 'types' => $types]);
     }
 
     public function store($type, Request $request)
@@ -48,6 +52,8 @@ class SurveyController extends Controller {
             0 => q_id
           and the key is the order.
         */
+
+        dd(Input::all());
 
         $questions = Input::get('question');
 

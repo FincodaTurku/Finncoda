@@ -15,7 +15,10 @@ class survey_types_table_seeder extends Seeder
            'name' => 'Self Survey'
         ]);
         DB::table('survey_types')->insert([
-            'name' => 'Peer Survey'
+            'name' => 'Peer Survey',
         ]);
     }
+
+
+
 }

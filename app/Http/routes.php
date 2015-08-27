@@ -69,6 +69,20 @@ Route::get('survey/create', 'SurveyController@createNew');
 
 */
 Route::resource('type', 'SurveyTypeController');
+
+
+/*Routes for indicator groups
+  {type} is a bound wild card. So whenever a route has the {type}
+  wild card in it. Laravel will fetch the model to use in the controller.
+
+| @store   | POST     | type/{type}/survey
+| @index   | POST     | type/{type}/survey
+| @create  | GET      | type/{type}/survey/create
+| @destroy | DELETE   | type/{type}/survey/{survey}
+| @show    | GET|HEAD | type/{type}/survey/{survey}
+| @edit    | GET|HEAD | type/{type}/survey/{survey}/edit
+
+*/
 Route::resource('type.survey', 'SurveyController',
     ['except' => ['index']]);
 

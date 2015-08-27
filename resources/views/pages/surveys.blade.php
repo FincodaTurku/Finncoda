@@ -12,6 +12,6 @@
         <div class="list-group"></div>
     </div>
 
-    @include('pages._list')
+    @include('pages._list'  )
 
 @stop
