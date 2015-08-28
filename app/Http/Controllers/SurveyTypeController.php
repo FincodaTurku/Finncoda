@@ -10,8 +10,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 
-class SurveyTypeController extends Controller
-{
+class SurveyTypeController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +19,7 @@ class SurveyTypeController extends Controller
      */
     public function index()
     {
-
         $types = Survey_Type::all();
-
 
         return view('surveyTypes.index')->with('types', $types);
     }
@@ -39,7 +37,7 @@ class SurveyTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -62,25 +60,20 @@ class SurveyTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show(Survey_Type $type)
     {
-        $surveys = $type->surveys;
-        $st = Survey::with('owner')->where('type_id', '=', $type->id)->get();
-        $survs = User::with('surveys')->where('id', '=', 3)->get();
-        //$st->surveys;
+        $surveys = Survey::with('owner')->where('type_id', '=', $type->id)->get();
 
-        dd($st->toArray());
-
-        return view ('surveyTypes.show', ['type' => $type, 'surveys' => $surveys]);
+        return view('surveyTypes.show', ['type' => $type, 'surveys' => $surveys]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -91,8 +84,8 @@ class SurveyTypeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)

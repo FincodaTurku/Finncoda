@@ -19,18 +19,18 @@ class SurveyController extends Controller {
 
     public function index()
     {
-
         $surveys = Survey::with('owner')->get();
 
-
-        return view('pages.surveys', ['number_of_surveys' => $surveys->count(), 'surveys' => $surveys]);
+        return view('pages.surveys', ['number_of_surveys' => $surveys->count(),
+                                      'surveys' => $surveys]);
     }
 
     public function create($type)
     {
         $groups = Indicator_Group::all();
 
-        return view('surveys.create', ['groups' => $groups, 'type' => $type]);
+        return view('surveys.create', ['groups' => $groups,
+                                       'type' => $type]);
     }
 
     public function createNew()
@@ -39,7 +39,8 @@ class SurveyController extends Controller {
 
         $types = Survey_Type::all();
 
-        return view('surveys.createNew', ['groups' => $groups, 'types' => $types]);
+        return view('surveys.createNew', ['groups' => $groups,
+                                          'types' => $types]);
     }
 
     public function store($type, Request $request)
@@ -55,13 +56,13 @@ class SurveyController extends Controller {
         $survey = new Survey;
 
         /*This could probably be handled by the validator*/
-        if( ! Input::exists('type') ) {
+        if ( ! Input::exists('type'))
+        {
             $type_id = $type->id;
-        }
-        else {
+        } else
+        {
             $type_id = (int)Input::get('type');
         }
-
 
 
         $user = User::find(3);
@@ -70,7 +71,6 @@ class SurveyController extends Controller {
         //Building up the survey model
         $survey->title = $request->title;
         $survey->type_id = $type_id;
-
 
 
         //a user creates a survey
@@ -84,8 +84,8 @@ class SurveyController extends Controller {
         $order = 0;
         foreach ($questions as $question)
         {
-            $survey->questions()->attach($question,['indicator_order' => $order]);
-            $order++;
+            $survey->questions()->attach($question, ['indicator_order' => $order]);
+            $order ++;
         };
 
 
