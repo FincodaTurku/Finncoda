@@ -17,7 +17,12 @@ class Survey extends Model
     protected $fillable = [
         'owner_id',
         'title',
-
+        'scale',
+        'description',
+        'welcome_message',
+        'end_message',
+        'start_time',
+        'end_time'
     ];
 
     /**

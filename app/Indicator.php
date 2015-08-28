@@ -24,4 +24,8 @@ class Indicator extends Model
     {
         return $this->hasMany('App\Survey');
     }
+
+
+
+
 }

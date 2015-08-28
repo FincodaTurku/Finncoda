@@ -21,11 +21,11 @@ class SurveyController extends Controller {
     {
         $surveys = Survey::with('owner')->get();
 
-        return view('pages.surveys', ['number_of_surveys' => $surveys->count(),
+        return view('surveys.index', ['number_of_surveys' => $surveys->count(),
                                       'surveys' => $surveys]);
     }
 
-    public function create($type)
+    public function create(Survey_Type $type)
     {
         $groups = Indicator_Group::all();
 
@@ -33,17 +33,19 @@ class SurveyController extends Controller {
                                        'type' => $type]);
     }
 
+    /*Could be combined with the function above but adding a simple check
+      to see if there's a {type} wildcard in the url */
     public function createNew()
     {
         $groups = Indicator_Group::all();
-
+        dd($groups[1]->questions->toarray());
         $types = Survey_Type::all();
 
         return view('surveys.createNew', ['groups' => $groups,
                                           'types' => $types]);
     }
 
-    public function store($type, Request $request)
+    public function store(Survey_Type $type, Request $request)
     {
         /*From the view questions is an array where the values
           are the questions_ids
@@ -71,7 +73,7 @@ class SurveyController extends Controller {
         //Building up the survey model
         $survey->title = $request->title;
         $survey->type_id = $type_id;
-
+        $survey->scale = 5; //Temporary just stubbing it out for now.
 
         //a user creates a survey
         $user->surveys()->save($survey);
@@ -100,10 +102,24 @@ class SurveyController extends Controller {
      * @param Survey_Type $type
      * @return Response
      */
-    public function destroy(Survey_Type $type, $survey)
+    public function destroy(Survey_Type $type, Survey $survey)
     {
-        Survey::find($survey)->delete();
+        $survey->delete();
 
         return redirect()->back();
+    }
+
+    public function show(Survey_Type $type, Survey $survey)
+    {
+        $survey_ = Survey::with('questions.group')->get();
+
+
+        $questions = $survey->questions;
+
+
+        dd($questions);
+
+        dd($questions);
+        return view('surveys.show', ['survey' => $survey, 'questions' => $questions]);
     }
 }

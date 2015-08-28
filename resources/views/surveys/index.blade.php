@@ -12,6 +12,6 @@
         <div class="list-group"></div>
     </div>
 
-    @include('...surveys._list')
+    @include('surveys._list')
 
 @stop

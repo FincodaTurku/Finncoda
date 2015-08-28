@@ -4,36 +4,37 @@
 
 @section('content')
 
-    <h1>List Survey Questions in</h1>
+    <h1>{{ $survey->title }}</h1>
     <br>
-    <h1>{{ $type->name }}</h1>
+    <h3>Please answer the survey questions. <p>Each questions is on a scale of 1-5, 5 being the best.</h2>
+
+    <table class="table">
+    <tr>
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+    </tr>
+    <tr>
+        <td>{{ $questions[2]->indicator }}</td>
+        <td><input type="radio" name="row-1" data-col="1"></td>
+        <td><input type="radio" name="row-1" data-col="2"></td>
+        <td><input type="radio" name="row-1" data-col="3"></td>
+    </tr>
+    <tr>
+        <td>Snickers</td>
+        <td><input type="radio" name="row-2" data-col="1"></td>
+        <td><input type="radio" name="row-2" data-col="2"></td>
+        <td><input type="radio" name="row-2" data-col="3"></td>
+    </tr>
+    <tr>
+        <td>Butterfingers</td>
+        <td><input type="radio" name="row-3" data-col="1"></td>
+        <td><input type="radio" name="row-3" data-col="2"></td>
+        <td><input type="radio" name="row-3" data-col="3"></td>
+    </tr>
+    </table>
 
 
-    @if(count($surveys))
-        @foreach($surveys as $survey)
-
-            <div class="list-group">
-                    <span class="list-group-item clearfix">
-                        <a href="#">
-                            {{ $survey->indicator }}
-                        </a>
-
-                        <span class="pull-right">
-                        {!! Form::open(array('class' => 'form-inline',
-                            'method' => 'DELETE',
-                            'action' => array('QuestionsController@destroy', $question->id)))
-                            !!}
-
-
-                        {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
-
-                        {!! Form::close() !!}
-                        </span>
-                    </span>
-            </div>
-        @endforeach
-    @else
-        <li class="list-group-item">No questions to display</li>
-    @endif
 
 @stop

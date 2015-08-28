@@ -15,15 +15,17 @@ class Indicator_Group extends Model
 
     protected $fillable = ['name'];
 
+    /*Each Indicator group has many questions*/
     public function questions()
     {
         return $this->hasMany('App\Indicator', 'group_id');
     }
 
-    public function question($question)
+
+/*    public function question($question)
     {
 
         return $this->questions()->where('id', '=', $question);
-    }
+    }*/
 
 }

@@ -21,6 +21,7 @@ class CreateSurveysTable extends Migration
             $table->text('description');
             $table->text('welcome_message');
             $table->text('end_message');
+            $table->integer('scale');
             $table->timestamp('start_time');
             $table->timestamp('end_time');
 
