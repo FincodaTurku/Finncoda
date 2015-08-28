@@ -44,18 +44,24 @@ class SurveyController extends Controller {
 
     public function store($type, Request $request)
     {
-        $user_id = 3; //just a temp field to spike a fake user.
-        $survey = new Survey;
-
         /*From the view questions is an array where the values
           are the questions_ids
             0 => q_id
           and the key is the order.
         */
-
-        dd(Input::all());
-
         $questions = Input::get('question');
+
+        $user_id = 3; //just a temp field to spike a fake user.
+        $survey = new Survey;
+
+        /*This could probably be handled by the validator*/
+        if( ! Input::exists('type') ) {
+            $type_id = $type->id;
+        }
+        else {
+            $type_id = (int)Input::get('type');
+        }
+
 
 
         $user = User::find(3);
@@ -63,7 +69,7 @@ class SurveyController extends Controller {
 
         //Building up the survey model
         $survey->title = $request->title;
-        $survey->type_id = $type->id;
+        $survey->type_id = $type_id;
 
 
 
@@ -78,11 +84,8 @@ class SurveyController extends Controller {
         $order = 0;
         foreach ($questions as $question)
         {
-
             $survey->questions()->attach($question,['indicator_order' => $order]);
             $order++;
-
-
         };
 
 
