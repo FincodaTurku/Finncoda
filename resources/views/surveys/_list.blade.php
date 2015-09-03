@@ -1,5 +1,5 @@
 
-Penis
+
 @if(count($surveys))
     @foreach($surveys as $survey)
 
@@ -11,6 +11,7 @@ Penis
                         <small>{{$survey->owner->first_name}} {{ $survey->owner->last_name }}</small>
 
                         <span class="pull-right">
+
                         {!! Form::open(array('class' => 'form-inline',
                             'method' => 'DELETE',
                             'action' => array('SurveyController@destroy', $survey->type_id, $survey->id)))
@@ -22,13 +23,18 @@ Penis
                             {!! Form::close() !!}
                         </span>
                     </span>
+
+                    <!-- {{ action('SurveyController@destroy', [$survey->type_id, $survey->id]) }} -->
         </div>
     @endforeach
 @else
     <li class="list-group-item">No Surveys to display</li>
 @endif
 
+
     {!! Form::open() !!}
+
+    <
 
 
         <a href="{{ action('SurveyController@createNew') }}"

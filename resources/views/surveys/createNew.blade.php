@@ -1,4 +1,4 @@
-@extends('default')
+@extends('layout')
 
 @section('title', 'Create New Survey')
 

@@ -1,6 +1,6 @@
-@extends('default')
+@extends('layout')
 
-@section('title', 'Survey Questions')
+@section('title', 'Surveys')
 
 @section('content')
 

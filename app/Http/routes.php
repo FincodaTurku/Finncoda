@@ -17,6 +17,8 @@ use App\Indicator_Group;
     return Indicator_Group::where('id', $value)->first();
 });*/
 
+Route::get('dashboard', 'DashboardController@index');
+
 
 /*Routes for indicator groups
   {groups} is a bound wild card. So whenever a route has the {group}

@@ -1,4 +1,4 @@
-@extends('default')
+@extends('layout')
 
 @section('title', 'Create Survey Questions')
 
@@ -25,7 +25,7 @@
         </ul>
     @endif
 
-    <!--- Submit button Field --->
+    <!-- Submit button Field -->
     <div class="form-group">
         {!! Form::submit('save', ['class' => 'btn btn-primary']) !!}
     </div>

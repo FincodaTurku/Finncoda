@@ -19,7 +19,8 @@ class SurveyController extends Controller {
 
     public function index()
     {
-        $surveys = Survey::with('owner')->get();
+
+        $surveys = Survey::where('owner_id', '=', 3)->get();
 
         return view('surveys.index', ['number_of_surveys' => $surveys->count(),
                                       'surveys' => $surveys]);
@@ -38,7 +39,7 @@ class SurveyController extends Controller {
     public function createNew()
     {
         $groups = Indicator_Group::all();
-        dd($groups[1]->questions->toarray());
+        
         $types = Survey_Type::all();
 
         return view('surveys.createNew', ['groups' => $groups,

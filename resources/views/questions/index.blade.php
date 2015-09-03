@@ -8,7 +8,6 @@
     <br>
 
 
-
     @if(count($questions))
         @foreach($questions as $question)
 
@@ -25,7 +24,11 @@
                             !!}
 
 
-                        {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+                        {!! Form::submit('Delete', array('class' => 'btn btn-danger', 'id' => 'delte')) !!}
+
+                        {!! Form::submit('New', array('class' => 'btn btn-primary')) !!}
+
+
 
                         {!! Form::close() !!}
                         </span>
