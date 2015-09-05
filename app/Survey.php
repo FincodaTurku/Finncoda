@@ -47,4 +47,9 @@ class Survey extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function groups()
+    {
+        return $this->hasManyThrough('App\Indicator_Group', 'App\Indicator');
+    }
 }

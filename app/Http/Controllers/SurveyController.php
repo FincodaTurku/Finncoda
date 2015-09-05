@@ -111,13 +111,14 @@ class SurveyController extends Controller {
 
     public function show(Survey_Type $type, Survey $survey)
     {
-        $survey_ = Survey::with('questions.group')->get();
+        $survey_ = Survey::with('group');
 
 
         $questions = $survey->questions;
 
 
-        dd($questions);
+
+        dd($survey_);
 
         dd($questions);
         return view('surveys.show', ['survey' => $survey, 'questions' => $questions]);
