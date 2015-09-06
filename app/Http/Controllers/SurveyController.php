@@ -48,6 +48,7 @@ class SurveyController extends Controller {
 
     public function store(Survey_Type $type, Request $request)
     {
+        dd('hello');
         /*From the view questions is an array where the values
           are the questions_ids
             0 => q_id
@@ -110,6 +111,14 @@ class SurveyController extends Controller {
         return redirect()->back();
     }
 
+
+    /**
+     * Show the survey form to take a survey
+     *
+     * @param Survey_Type $type
+     * @param Survey $survey
+     * @return \Illuminate\View\View
+     */
     public function show(Survey_Type $type, Survey $survey)
     {
         $survey_ = Survey::with('questions.group')->get();

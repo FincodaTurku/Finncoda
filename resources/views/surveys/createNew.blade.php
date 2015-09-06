@@ -18,7 +18,7 @@
         {!! Form::open(array('class' => 'form-group',
             'method' => 'POST',
             'action' => array('SurveyController@store', 1)))
-            !!}
+            !!}{{-- the 1 can be removed. it just there because of how the routes are set up.--}}
 
 
 

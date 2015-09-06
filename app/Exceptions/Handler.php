@@ -50,39 +50,5 @@ class Handler extends ExceptionHandler
         return parent::render($request, $e);
     }
 
-    /**
-     * Render the error view that best fits that status code.
-     *
-     * @param Exception $e
-     * @return \Illuminate\Http\Response
-     */
-    public function renderHttpExceptionView(Exception $e)
-    {
-        $status = $e->getStatusCode();
 
-        if (view()->exists("errors.{$status}")) {
-            return $this->toIlluminateResponse($this->renderHttpException($e), $e);
-        }
-
-        return response()->view("errors.default", ['exception' => $e], $status);
-
-    }
-
-    /**
-     * Render an exception using Whoops.
-     *
-     * @param  \Exception $e
-     * @return \Illuminate\Http\Response
-     */
-    protected function renderExceptionWithWhoops(Exception $e)
-    {
-        $whoops = new \Whoops\Run;
-        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
-
-        return new \Illuminate\Http\Response(
-            $whoops->handleException($e),
-            $e->getStatusCode(),
-            $e->getHeaders()
-        );
-    }
 }
