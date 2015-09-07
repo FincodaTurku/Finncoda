@@ -17,6 +17,14 @@ use App\Indicator_Group;
     return Indicator_Group::where('id', $value)->first();
 });*/
 
+
+/*Authentication routes*/
+if (Request::is('auth/*'))
+{
+    require __DIR__.'/auth_routes.php';
+}
+
+
 Route::get('dashboard', 'DashboardController@index');
 
 

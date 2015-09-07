@@ -1,4 +1,4 @@
-@extends('default')
+@extends('layout')
 
 @section('title', 'Indicator Groups')
 
@@ -9,49 +9,60 @@
 
 
 
-        @if(count($groups))
-            @foreach($groups as $group)
+    @if(count($groups))
+        @foreach($groups as $group)
 
-                <div class="list-group">
+            <div class="list-group">
                     <span class="list-group-item clearfix">
                         <a href="{{ action('IndicatorGroupController@show', $group->id) }}">
                             {{ $group->name }}
                         </a>
 
                         <span class="pull-right">
-                        {!! Form::open(array('class' => 'form-inline',
+                        {!! Form::open(array(
+                            'class' => 'form-inline',
                             'method' => 'DELETE',
                             'action' => array('IndicatorGroupController@destroy', $group->id)))
                             !!}
 
-                        <a href="{{ action('QuestionsController@create', $group->id) }}"
-                           class="btn btn-primary"
-                           type="submit"
-                           name="question">
-                            Add Question
+                            <a href="{{ action('QuestionsController@create', $group->id) }}"
+                               class="btn btn-primary"
+                               type="submit"
+                               name="question">
+                                Add Question
                             </a>
 
-                        {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+                            {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
 
-                        {!! Form::close() !!}
+                            {!! Form::close() !!}
                         </span>
                     </span>
-                </div>
-            @endforeach
-        @else
-            <li class="list-group-item">No Groups to display</li>
-        @endif
+            </div>
+        @endforeach
+
+    @else
+        <li class="list-group-item">No Groups to display</li>
+    @endif
+
+    <hr>
+    <lable>Create a new question group</lable>
+    <br/>
+         <a class="btn btn-primary" href="{{ action('IndicatorGroupController@create') }}">
+            Create new
+        </a>
+
+
 
 
 
 
     <script>
-        $(document).ready(function(){
-            $('form').submit(function(e){
+        $(document).ready(function () {
+            $('form').submit(function (e) {
                 e.preventDefault();
                 url = $(this).parent().attr('action');
-                BootstrapDialog.confirm('Are you sure you want to delete?', function(result){
-                    if(result) {
+                BootstrapDialog.confirm('Are you sure you want to delete?', function (result) {
+                    if (result) {
                         $.ajax(url);
                     }
                 });

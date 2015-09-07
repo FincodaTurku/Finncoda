@@ -9,6 +9,7 @@ use App\Questions_Survey;
 use App\Survey;
 use App\Survey_Type;
 use App\User;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,11 @@ use Input;
 
 class SurveyController extends Controller {
 
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
 
@@ -57,7 +63,9 @@ class SurveyController extends Controller {
         */
         $questions = Input::get('question');
 
-        $user_id = 3; //just a temp field to spike a fake user.
+        //the Logged in user
+        $user = Auth::user();
+
         $survey = new Survey;
 
         /*This could probably be handled by the validator*/
@@ -69,8 +77,6 @@ class SurveyController extends Controller {
             $type_id = (int)Input::get('type');
         }
 
-
-        $user = User::find(3);
 
 
         //Building up the survey model
@@ -153,7 +159,8 @@ class SurveyController extends Controller {
 
     public function take(Survey_Type $type, Survey $survey, Request $request)
     {
-        $user_id = 4;
+        $user_id = $user = Auth::user()->id;
+
 
         //building up the results array before mass insert. can be cleaned up some.
         foreach ($request->get('radio') as $question_id => $answer)
@@ -167,7 +174,7 @@ class SurveyController extends Controller {
         }
 
         DB::table('results')->insert($results);
-        
+
         flash()->success('success','Thank you for competing the survey');
 
         return redirect()->back();

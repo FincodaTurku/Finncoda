@@ -20,7 +20,7 @@
                         <li class = "dropdown"><a href="#" class = "dropdown-toggle" data-toggle = "dropdown">Info<b class="caret"></b></a>
                         <!--Submenu-->
                         	<ul class = "dropdown-menu">
-                            	<li><a href="#">Barometer</a></li>
+                            	<li><a href="{{ action('IndicatorGroupController@index') }}">Barometer</a></li>
                                 <li><a href="#">News</a></li>
                             </ul>
                         </li>

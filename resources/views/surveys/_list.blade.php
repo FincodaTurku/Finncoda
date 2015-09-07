@@ -34,9 +34,6 @@
 
     {!! Form::open() !!}
 
-    <
-
-
         <a href="{{ action('SurveyController@createNew') }}"
            class="btn btn-primary"
            type="submit"
