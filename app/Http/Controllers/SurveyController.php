@@ -9,10 +9,12 @@ use App\Questions_Survey;
 use App\Survey;
 use App\Survey_Type;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Input;
 
 class SurveyController extends Controller {
@@ -23,7 +25,7 @@ class SurveyController extends Controller {
         $surveys = Survey::where('owner_id', '=', 3)->get();
 
         return view('surveys.index', ['number_of_surveys' => $surveys->count(),
-                                      'surveys' => $surveys]);
+                                      'surveys'           => $surveys]);
     }
 
     public function create(Survey_Type $type)
@@ -31,7 +33,7 @@ class SurveyController extends Controller {
         $groups = Indicator_Group::all();
 
         return view('surveys.create', ['groups' => $groups,
-                                       'type' => $type]);
+                                       'type'   => $type]);
     }
 
     /*Could be combined with the function above but adding a simple check
@@ -39,16 +41,15 @@ class SurveyController extends Controller {
     public function createNew()
     {
         $groups = Indicator_Group::all();
-        
+
         $types = Survey_Type::all();
 
         return view('surveys.createNew', ['groups' => $groups,
-                                          'types' => $types]);
+                                          'types'  => $types]);
     }
 
     public function store(Survey_Type $type, Request $request)
     {
-        dd('hello');
         /*From the view questions is an array where the values
           are the questions_ids
             0 => q_id
@@ -115,21 +116,60 @@ class SurveyController extends Controller {
     /**
      * Show the survey form to take a survey
      *
+     * Note we return a multidimensional array $groups['group']['questions]
+     *
      * @param Survey_Type $type
      * @param Survey $survey
      * @return \Illuminate\View\View
      */
     public function show(Survey_Type $type, Survey $survey)
     {
-        $survey_ = Survey::with('questions.group')->get();
+        $questions = $survey->questions()->orderBy('group_id', 'asc')->get();
 
 
-        $questions = $survey->questions;
+        $results = array();
+
+        //separate the questions into an array by their group
+        foreach ($questions as $question)
+        {
+            $results[$question->group_id][] = $question;
+        }
 
 
-        dd($questions);
+        $groups = array();
 
-        dd($questions);
-        return view('surveys.show', ['survey' => $survey, 'questions' => $questions]);
+        //build an array that includes the question group data + questions.
+        foreach ($results as $result)
+        {
+            $group = Indicator_Group::find($result[0]->group_id);
+            $groups[] = ['group'     => $group,
+                         'questions' => $result];
+        }
+
+        /*Note we return a multidimensional array $groups['group']['questions]*/
+
+        return view('surveys.show', ['survey' => $survey, 'questions' => $groups]);
+    }
+
+    public function take(Survey_Type $type, Survey $survey, Request $request)
+    {
+        $user_id = 4;
+
+        //building up the results array before mass insert. can be cleaned up some.
+        foreach ($request->get('radio') as $question_id => $answer)
+        {
+            $results[] = ['survey_id'    => $survey->id,
+                          'indicator_id' => (int) $question_id,
+                          'user_id'      => $user_id,
+                          'answer'       => (int) $answer,
+                          'created_at'   => Carbon::now(),
+                          'updated_at'   => Carbon::now()];
+        }
+
+        DB::table('results')->insert($results);
+        
+        flash()->success('success','Thank you for competing the survey');
+
+        return redirect()->back();
     }
 }

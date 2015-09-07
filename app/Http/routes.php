@@ -88,7 +88,7 @@ Route::resource('type', 'SurveyTypeController');
 Route::resource('type.survey', 'SurveyController',
     ['except' => ['index']]);
 
-
+Route::post('type/{type}/survey/{survey}/take', 'SurveyController@take');
 
 /*
  * OLD Routes can be deleted

@@ -1,61 +1,67 @@
-<body>
-<div class="container">
-    <h1 id="title">FINCODA survey</h1><hr id="line">
-    <br />
-    <p>The following survey should be answered according a scale from 0-5. O = Not observed/not demonstrated, 1 = Very poor, 2 =    Needs to improve, 3 = pass, 4 = good and 5 = excellent. 		           Please do not leave any blanks. Not all assessment tasks and situations are conducive to demonstrating all of the capacities and skills to which the items refer; in such cases “0” is
-        the appropriate response. </p>
-    <br />
-    <div class="table-responsive">
+
+    <div class="list-group">
         <table class="table table-bordered" id="radio">
+
             <form>
-                <tr>
-                    <td class="field-label col-md-6 active">
-                        <label>Scale</label>
-                    </td>
-                    <td class="col-md-1">
-                        Not observed <br />0
-                    </td>
-                    <td class="col-md-1">
-                        Very poor<br /><br />1
-                    </td>
-                    <td class="col-md-1">
-                        Needs to improve<br />2
-                    </td>
-                    <td class="col-md-1">
-                        Pass<br /><br />3
-                    </td>
-                    <td class="col-md-1">
-                        Good<br /><br />4
-                    </td>
-                    <td class="col-md-1">
-                        Excellent<br /><br />5
-                    </td>
-                </tr>
-                <tr>
-                    <td class="field-label col-md-6 active">
-                        <label>Presents ideas that are suitable for the task</label>
-                    </td>
-                    <td class="col-md-1">
-                        <input type="radio" name="radio">
-                    </td>
-                    <td class="col-md-1">
-                        <input type="radio" name="radio">
-                    </td>
-                    <td class="col-md-1">
-                        <input type="radio" name="radio">
-                    </td>
-                    <td class="col-md-1">
-                        <input type="radio" name="radio">
-                    </td>
-                    <td class="col-md-1">
-                        <input type="radio" name="radio">
-                    </td>
-                    <td class="col-md-1">
-                        <input type="radio" name="radio">
-                    </td>
-                </tr>
+
+                @include('surveys._tableScale')
+
+
+                @foreach( $questions as $question)
+
+                    <tr>
+
+                        <td class="list-group-item clearfix col-md-6">
+                            <h4><em>{{ $question['group']->name }}</em></h4>
+                        </td>
+
+                    </tr>
+
+                    @foreach( $question['questions'] as $groupedQuestion )
+
+                        <tr>
+                            <td class="list-group-item clearfix col-md-6">
+                                <label> {{ $groupedQuestion->indicator }}</label>
+                            </td>
+                            <td class="col-md-1">
+                                <input type="radio"
+                                       value="0"
+                                       name="radio[{{ $groupedQuestion->id }}]">
+                            </td>
+                            <td class="col-md-1">
+                                <input type="radio"
+                                       value="1"
+                                       name="radio[{{ $groupedQuestion->id }}]">
+                            </td>
+                            <td class="col-md-1">
+                                <input type="radio"
+                                       value="2"
+                                       name="radio[{{ $groupedQuestion->id }}]">
+                            </td>
+                            <td class="col-md-1">
+                                <input type="radio"
+                                       value="3"
+                                       name="radio[{{ $groupedQuestion->id }}]">
+                            </td>
+                            <td class="col-md-1">
+                                <input type="radio"
+                                       value="4"
+                                       name="radio[{{ $groupedQuestion->id }}]">
+                            </td>
+                            <td class="col-md-1">
+                                <input type="radio"
+                                       value="5"
+                                       name="radio[{{ $groupedQuestion->id }}]">
+                            </td>
+                        </tr>
+
+
+                    @endforeach
+
+
+                    @endforeach
+
             </form>
         </table>
     </div>
-    <a href="sent.html" class="btn btn-success" id="button">Send</a>
-</div>
+
