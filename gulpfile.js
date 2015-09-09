@@ -14,7 +14,8 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss')
         .scripts([
-            'libs/sweetalert-dev.js'
+            'libs/sweetalert-dev.js',
+            'multiStepForm.js'
         ], './public/js/libs.js')
         .styles([
             'libs/sweetalert.css',

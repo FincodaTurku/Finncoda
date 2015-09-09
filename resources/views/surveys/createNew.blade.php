@@ -15,36 +15,54 @@
 
         <div class="row">
 
-        {!! Form::open(array('class' => 'form-group',
-            'method' => 'POST',
-            'action' => array('SurveyController@store', 1)))
-            !!}{{-- the 1 can be removed. it just there because of how the routes are set up.--}}
 
 
+<body>
 
-            {!! Form::label('type', 'Select a survey type: ') !!}
-            <select name="type" class="form-control">
-            @foreach($types as $type)
-                <option value="{{ $type->id }}">{{ $type->name }}</option>
-            @endforeach
-            </select>
+   <div class="container">
+	<br><br>
+	  <div class="col-md-8 col-md-offset-2">
+		<div class="progress">
+		  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+
+        {!! Form::open(array('class' => 'form-group surveyForm',
+                    'method' => 'POST',
+                    'action' => array('SurveyController@store', 1)))
+                    !!}
+
+		<div class="step well">
+			<!--Add User Field
+			    Form::text('name : String', 'default : String', params : array) -->
+			<div class="form-group">
+			    {!! Form::label('Add User', 'Add User: ') !!}
+			    {!! Form::text('addUser',null, ['class' => 'form-control']) !!}
+
+			    @include('surveys._selectSurveyType')
+
+			</div>
+		</div>
+		<div class="step well">
+			@include('surveys._questionsList')
+		</div>
+		<div class="step well">
+			Step 3
+		</div>
+		<div class="step well">
+			Step 4
+		</div>
+		<div class="step well">
+			Step 5
+		</div>
 
 
-            <!--Title Field
-                Form::text('name : String', 'default : String', params : array) -->
-            <div class="form-group">
-                {!! Form::label('title', 'Title: ') !!}
-                {!! Form::text('title',null, ['class' => 'form-control']) !!}
-            </div>
+		<button type= "button" class="action back btn btn-info">Back</button>
+		<button type= "button" class="action next btn btn-info">Next</button>
+		            {!! Form::submit('Create Survey', array('class' => 'action submit btn btn-success')) !!}
 
+                    {!! Form::close() !!}
 
-            <hr>
-
-            @include('surveys._questionsList')
-
-            {!! Form::submit('Create Survey', array('class' => 'btn btn-primary')) !!}
-
-            {!! Form::close() !!}
-        </div>
+	 </div>
+   </div>
 
     @stop
