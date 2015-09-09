@@ -24,7 +24,7 @@
                                 <li><a href="#">News</a></li>
                             </ul>
                         </li>
-						<li><a href="#">Reports</a></li>
+						<li><a href="{{ action('ReportController@index') }}">Reports</a></li>
                         <li><a href="#">Help</a></li>
                     </ul>
                 </div>

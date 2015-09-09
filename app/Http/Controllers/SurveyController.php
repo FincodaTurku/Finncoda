@@ -29,7 +29,7 @@ class SurveyController extends Controller {
     public function index()
     {
 
-        $surveys = Survey::where('owner_id', '=', 3)->get();
+        $surveys = Auth::user()->surveys;
 
         return view('surveys.index', ['number_of_surveys' => $surveys->count(),
                                       'surveys'           => $surveys]);

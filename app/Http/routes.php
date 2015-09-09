@@ -28,6 +28,9 @@ if (Request::is('auth/*'))
 Route::get('dashboard', 'DashboardController@index');
 
 
+Route::resource('reports', 'ReportController');
+
+
 /*Routes for indicator groups
   {groups} is a bound wild card. So whenever a route has the {group}
   wild card in it. Laravel will fetch the model to use in the controller.
