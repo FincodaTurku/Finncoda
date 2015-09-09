@@ -103,6 +103,8 @@ class SurveyController extends Controller {
             $order ++;
         };
 
+        flash()->success('Success', 'Your survey has been created!');
+
 
         return redirect()->back();
     }
