@@ -15,6 +15,8 @@
 
         <div class="row">
 
+        <pre>{{ var_dump($users[1]) }}</pre>
+
 
 
 <body>

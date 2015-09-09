@@ -25,6 +25,7 @@ class SurveyController extends Controller {
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
 
@@ -48,10 +49,14 @@ class SurveyController extends Controller {
     {
         $groups = Indicator_Group::all();
 
+        $users = User::all();
+
         $types = Survey_Type::all();
 
         return view('surveys.createNew', ['groups' => $groups,
-                                          'types'  => $types]);
+                                          'types'  => $types,
+                                          'users'  => $users]);
+
     }
 
     public function store(Survey_Type $type, Request $request)
@@ -76,7 +81,6 @@ class SurveyController extends Controller {
         {
             $type_id = (int)Input::get('type');
         }
-
 
 
         //Building up the survey model
@@ -166,16 +170,16 @@ class SurveyController extends Controller {
         foreach ($request->get('radio') as $question_id => $answer)
         {
             $results[] = ['survey_id'    => $survey->id,
-                          'indicator_id' => (int) $question_id,
+                          'indicator_id' => (int)$question_id,
                           'user_id'      => $user_id,
-                          'answer'       => (int) $answer,
+                          'answer'       => (int)$answer,
                           'created_at'   => Carbon::now(),
                           'updated_at'   => Carbon::now()];
         }
 
         DB::table('results')->insert($results);
 
-        flash()->success('success','Thank you for competing the survey');
+        flash()->success('success', 'Thank you for competing the survey');
 
         return redirect()->back();
     }
