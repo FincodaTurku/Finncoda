@@ -15,7 +15,7 @@
 
         <div class="row">
 
-        <pre>{{ var_dump($users[1]) }}</pre>
+        {{--<pre>{{ var_dump($users[1]) }}</pre>--}}
 
 
 
@@ -37,18 +37,17 @@
 			<!--Add User Field
 			    Form::text('name : String', 'default : String', params : array) -->
 			<div class="form-group">
-			    {!! Form::label('Add User', 'Add User: ') !!}
+			    {!! Form::label('Add User', 'Add Users: ') !!}
 			    {!! Form::text('addUser',null, ['class' => 'form-control']) !!}
 
-			    @include('surveys._selectSurveyType')
 
 			</div>
 		</div>
 		<div class="step well">
-			@include('surveys._questionsList')
+			@include('surveys._selectSurveyType')
 		</div>
 		<div class="step well">
-			Step 3
+			@include('surveys._questionsList')
 		</div>
 		<div class="step well">
 			Step 4

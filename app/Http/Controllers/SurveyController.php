@@ -87,6 +87,7 @@ class SurveyController extends Controller {
         $survey->title = $request->title;
         $survey->type_id = $type_id;
         $survey->scale = 5; //Temporary just stubbing it out for now.
+        $survey->description = $request->description;
 
         //a user creates a survey
         $user->surveys()->save($survey);
@@ -106,7 +107,7 @@ class SurveyController extends Controller {
         flash()->success('Success', 'Your survey has been created!');
 
 
-        return redirect()->back();
+        return redirect()->action('SurveyController@index');
     }
 
     /**

@@ -26,32 +26,38 @@
                             <td class="col-md-1">
                                 <input type="radio"
                                        value="0"
-                                       name="radio[{{ $groupedQuestion->id }}]">
+                                       name="radio[{{ $groupedQuestion->id }}]"
+                                       required>
                             </td>
                             <td class="col-md-1">
                                 <input type="radio"
                                        value="1"
-                                       name="radio[{{ $groupedQuestion->id }}]">
+                                       name="radio[{{ $groupedQuestion->id }}]"
+                                       required>
                             </td>
                             <td class="col-md-1">
                                 <input type="radio"
                                        value="2"
-                                       name="radio[{{ $groupedQuestion->id }}]">
+                                       name="radio[{{ $groupedQuestion->id }}]"
+                                       required>
                             </td>
                             <td class="col-md-1">
                                 <input type="radio"
                                        value="3"
-                                       name="radio[{{ $groupedQuestion->id }}]">
+                                       name="radio[{{ $groupedQuestion->id }}]"
+                                       required>
                             </td>
                             <td class="col-md-1">
                                 <input type="radio"
                                        value="4"
-                                       name="radio[{{ $groupedQuestion->id }}]">
+                                       name="radio[{{ $groupedQuestion->id }}]"
+                                       required>
                             </td>
                             <td class="col-md-1">
                                 <input type="radio"
                                        value="5"
-                                       name="radio[{{ $groupedQuestion->id }}]">
+                                       name="radio[{{ $groupedQuestion->id }}]"
+                                       required>
                             </td>
                         </tr>
 
