@@ -25,6 +25,11 @@ class Indicator extends Model
         return $this->hasMany('App\Survey');
     }
 
+    public function answers()
+    {
+        return $this->hasMany('App\Result');
+    }
+
 
 
 

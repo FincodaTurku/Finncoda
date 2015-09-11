@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Survey;
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,7 +28,13 @@ class ReportController extends Controller
 
         $survey = Survey::findOrFail($surveyId);
 
-        dd($survey->results);
+        //dd($survey->questions->lists('indicator' ));
+        //dd($survey->questions->answers->list('answer'));
+        foreach( $survey->questions as $question){
+            $answers[$question->indicator] = $question->answers;
+        }
+
+        dd($answers);
 
         $user = Auth::user();
 

@@ -4,7 +4,7 @@
 
         @section('content')
 
-    @include('surveys._list')
+    @include('reports._list')
 
 
     @stop
